@@ -1,0 +1,2 @@
+with open('me.txt', 'w') as f:
+  f.write(f"Nama : Abraham Ganda Boas Napitu\nNIM  : 122140095\nResolusi saya di tahun ini : Semakin spontan")
