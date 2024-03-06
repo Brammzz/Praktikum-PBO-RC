@@ -34,10 +34,10 @@ class Game:
         print('Games Start !!!\n')
         print('# Games Rules : ')
         print('# Opsi Attack digunakan untuk Menyerang lawan dengan power serangan saat ini')
-        print('# Opsi Defense berfungsi untuk menahan serangan lawan sebesar 50% power serangan saat ini')
+        print('# Opsi Defense berfungsi untuk menahan serangan lawan sebesar 50%')
         print('# Opsi Give Up digunakan untuk pemain menyerah dari pertandingan')
-        print('# Opsi Regen HP berfungsi untuk menambahkan darah sebesar 15% dari darah terbaru')
-        print('# Opsi Increase Attack berfungsi untuk menambahkan Attack sebesar 10% dari Attack saat ini')
+        print('# Opsi Regen HP berfungsi untuk menambahkan darah sebesar 15%')
+        print('# Opsi Increase Attack berfungsi untuk menambahkan Attack sebesar 10%')
 
         while self.robot.life() and self.musuh.life():
 
