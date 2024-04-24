@@ -24,7 +24,7 @@ class Login:
 
     def checking_on(self):
         if not self.registered:
-            messagebox.showinfo('Info', 'Anda belum mendaftarkan akun. Silakan daftar terlebih dahulu.')
+            messagebox.showinfo('Info', 'Anda belum mendaftarkan akun. Silahkan daftar terlebih dahulu.')
             return
 
         if self.username.get() in self.users and self.password.get() == self.users[self.username.get()]:
@@ -34,9 +34,9 @@ class Login:
 
     def open_register(self):
         self.boxlogin.withdraw()
-        self.jendela_register = Register(self.boxlogin, self.users, self)
-        self.jendela_register.jendela.protocol("WM_DELETE_WINDOW", lambda: self.close_register())
-        self.jendela_register.mainloop()
+        self.window_register = Register(self.boxlogin, self.users, self)
+        self.window_register.window.protocol("WM_DELETE_WINDOW", lambda: self.close_register())
+        self.window_register.mainloop()
 
     def close_register(self):
         self.boxlogin.deiconify()
@@ -50,27 +50,27 @@ class Register:
         self.users = users
         self.login_ref = login_ref
 
-        self.jendela = tk.Toplevel(self.master)
-        self.jendela.title('Register')
-        self.jendela.geometry('300x300')
+        self.window = tk.Toplevel(self.master)
+        self.window.title('Register')
+        self.window.geometry('300x300')
 
         self.username_register = tk.StringVar()
         self.password_register = tk.StringVar()
         self.cek_password = tk.StringVar()
 
-        tk.Label(self.jendela, text='Username:').pack()
-        self.username_entry = tk.Entry(self.jendela, textvariable=self.username_register)
+        tk.Label(self.window, text='Username:').pack()
+        self.username_entry = tk.Entry(self.window, textvariable=self.username_register)
         self.username_entry.pack()
 
-        tk.Label(self.jendela, text='Password:').pack()
-        self.password_entry = tk.Entry(self.jendela, textvariable=self.password_register, show='*')
+        tk.Label(self.window, text='Password:').pack()
+        self.password_entry = tk.Entry(self.window, textvariable=self.password_register, show='*')
         self.password_entry.pack()
 
-        tk.Label(self.jendela, text='Confirm Password:').pack()
-        self.cek_password_entry = tk.Entry(self.jendela, textvariable=self.cek_password, show='*')
+        tk.Label(self.window, text='Confirm Password:').pack()
+        self.cek_password_entry = tk.Entry(self.window, textvariable=self.cek_password, show='*')
         self.cek_password_entry.pack()
 
-        tk.Button(self.jendela, text='Register', command=self.register_button).pack()
+        tk.Button(self.window, text='Register', command=self.register_button).pack()
 
     def register_button(self):
         username = self.username_register.get()
@@ -92,7 +92,7 @@ class Register:
         self.users[username] = password
         messagebox.showinfo('Register Success', 'Akun telah berhasil didaftarkan')
         self.login_ref.registered = True
-        self.jendela.destroy()
+        self.window.destroy()
         self.login_ref.boxlogin.deiconify()
 
     def username_own(self, username):
